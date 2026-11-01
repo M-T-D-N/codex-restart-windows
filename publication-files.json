@@ -1,0 +1,22 @@
+[
+  ".github/workflows/test.yml",
+  ".gitignore",
+  "AGENTS.md",
+  "CHANGELOG.md",
+  "LICENSE",
+  "README.ko.md",
+  "README.md",
+  "Restart-Codex.ps1",
+  "docs/design.md",
+  "docs/privacy-and-license.md",
+  "docs/release.md",
+  "docs/usage.md",
+  "docs/validation.md",
+  "examples/Launch-InstalledCodex.ps1",
+  "publication-files.json",
+  "src/Restart.Core.ps1",
+  "src/Restart.Worker.ps1",
+  "tests/publication.ps1",
+  "tests/run.ps1",
+  "tests/scheduler.ps1"
+]

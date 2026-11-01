@@ -1,0 +1,22 @@
+name: Windows source checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Windows PowerShell 5.1 synthetic checks
+        shell: powershell
+        run: |
+          New-Item -ItemType Directory -Path build/test-temp -Force | Out-Null
+          ./tests/run.ps1 -ScratchRoot (Resolve-Path build/test-temp).Path
+      - name: PowerShell 7 synthetic checks
+        shell: pwsh
+        run: ./tests/run.ps1 -ScratchRoot (Resolve-Path build/test-temp).Path
+      - name: Publication file and documentation checks
+        shell: pwsh
+        run: ./tests/publication.ps1
+# Real interactive-user Task Scheduler acceptance is local and separately documented.
+# Hosted CI is not treated as an interactive Codex Desktop installation.
